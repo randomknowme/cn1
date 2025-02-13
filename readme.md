@@ -7,10 +7,6 @@ https://github.com/randomknowme/cn3
 # unit 1
 # Comparison of HTTP, SMTP, POP3, and IMAP
 
-## 1. Overview
-
-This document provides a detailed comparison of **HTTP, SMTP, POP3, and IMAP**, covering their purpose, usage, port numbers, architecture, advantages, disadvantages, and key differences.
-
 ## 2. Definition and Purpose
 
 1. **HTTP (Hypertext Transfer Protocol)**: Used for accessing and transferring web pages on the internet. It enables communication between web browsers and servers.
