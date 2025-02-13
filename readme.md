@@ -67,7 +67,6 @@ https://github.com/randomknowme/cn3
 
 **IMAP is better than POP3** for accessing emails from multiple devices, whereas **SMTP is only for sending emails.**
 
-This document provides an extended 8-mark level explanation suitable for exams and professional reference.
 
 
 https://github.com/randomknowme/cn1
