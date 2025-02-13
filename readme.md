@@ -58,12 +58,6 @@ https://github.com/randomknowme/cn3
 - **POP3**: Suitable for users who access emails from a single device and prefer local storage.
 - **IMAP**: Ideal for users who need access to emails from multiple devices and want to keep emails organized on the server.
 
-## 7. Summary
-
-- **HTTP** is used for browsing websites.
-- **SMTP** is used for sending emails.
-- **POP3** downloads and removes emails from the server.
-- **IMAP** allows managing emails while keeping them on the server.
 
 **IMAP is better than POP3** for accessing emails from multiple devices, whereas **SMTP is only for sending emails.**
 
