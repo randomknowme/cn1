@@ -7,7 +7,9 @@ https://github.com/randomknowme/cn3
 gpt https://chatgpt.com/c/677ca69b-2d08-8001-be39-58ac8e4fb8fd
 
 # unit 
-# producer consumer 
+# producer consumer
+
+The Producer-Consumer Problem is a synchronization issue where a producer adds data to a shared buffer, and a consumer removes data. Race conditions occur if both access the buffer simultaneously without proper synchronization, leading to buffer overflow (when the producer adds too much data) or buffer underflow (when the consumer tries to remove from an empty buffer). Semaphores or mutexes are used to prevent these issues
 ---
 ```c
 #include <stdio.h>
@@ -51,6 +53,8 @@ int main() {
 ```
 ---
 # fork
+A system call that creates a new child process.
+Returns 0 to the child, child’s PID to the parent.
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -75,6 +79,8 @@ int main() {
 
 ```
 # wait
+Makes a parent process wait for a child to complete execution.
+Helps in process synchronization.
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -108,6 +114,8 @@ int main() {
 ```
 ---
 # exec
+Replaces the current process image with a new program.
+Used in combination with fork().
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -139,6 +147,8 @@ int main() {
 
 ---
 # sleep
+Pauses a process for a specific time (in seconds).
+Used to simulate delays.
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -162,6 +172,8 @@ int main() {
 ```
 ---
 # Semaphores implementation with no busy waiting
+Uses blocking instead of looping to reduce CPU usage.
+Example: wait() and signal() operations block a process until resources are available instead of repeatedly checking.
 ![WhatsApp Image 2025-02-17 at 23 19 23_1d4ce525](https://github.com/user-attachments/assets/217e87c0-98a3-4391-94b2-0a1283396b95)
 
 ---
