@@ -4,7 +4,7 @@ https://github.com/randomknowme/cn2
 
 https://github.com/randomknowme/cn3
 
-gpt https://chatgpt.com/c/67ae5619-15c4-8001-be16-ecbae5ca68b0
+gpt https://chatgpt.com/c/677ca69b-2d08-8001-be39-58ac8e4fb8fd
 
 # unit 
 # producer consumer 
@@ -136,6 +136,33 @@ int main() {
     return 0;
 }
 ```
+
+---
+# sleep
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        printf("Child Process: PID = %d\n", getpid());
+        sleep(5);
+        printf("Child Process: Woke up after 5 seconds.\n");
+    } else {
+        printf("Parent Process: PID = %d\n", getpid());
+        sleep(2);
+        printf("Parent Process: Woke up after 2 seconds.\n");
+    }
+
+    return 0;
+}
+```
+---
+# Semaphores implementation with no busy waiting
+![WhatsApp Image 2025-02-17 at 23 19 23_1d4ce525](https://github.com/user-attachments/assets/217e87c0-98a3-4391-94b2-0a1283396b95)
 
 ---
 https://github.com/randomknowme/cn1
