@@ -24,7 +24,7 @@ One example is pollination, where bees collect nectar from flowers for food whil
 Ethical human conduct refers to behavior that is guided by moral values such as honesty, fairness, respect, and responsibility. It ensures that individuals act in ways that promote harmony, justice, and well-being in society.
 
 # SECTION B
-## QUESTION 1
+## QUESTION 2
 (a) Difference Between Intention and Competence in Building Trust
 Trust is built on two key factors: intention and competence.
 
@@ -46,7 +46,7 @@ Balanced Decision-Making: Ensuring fairness in resolving conflicts or distributi
 Accountability: Holding individuals responsible for their actions to maintain trust and fairness.
 By applying these principles, relationships can be strengthened, leading to long-term happiness for all involved.
 
-## question 3
+## question 4
 (a) Harmony in Nature and Contribution of Different Components
 
 Harmony in nature refers to the balanced coexistence of all living and non-living components, ensuring the smooth functioning of ecosystems. Every element in nature plays a crucial role in maintaining this balance.
