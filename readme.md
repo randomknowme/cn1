@@ -54,7 +54,7 @@ These mechanisms ensure that resources are not depleted and life continues to th
 
 
 
-SECTION A (10 Marks)
+# SECTION A (10 Marks)
 (a) Define the term Justice in human-human relationships.
 Justice in human-human relationships means ensuring fairness, equality, and mutual respect among individuals. It involves recognizing the rights and responsibilities of each person and treating them with dignity to maintain harmony and happiness.
 
