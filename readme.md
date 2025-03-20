@@ -3,6 +3,56 @@ https://github.com/randomknowme/cn1
 https://github.com/randomknowme/cn2
 
 https://github.com/randomknowme/cn3
+# SECTION B
+## QUESTION 2
+(a) Difference Between Intention and Competence in Building Trust
+**(a) Difference Between Intention and Competence in Building Trust**  
+
+Trust is built on two key factors: **intention** and **competence**.  
+
+- **Intention** refers to honesty, goodwill, and moral values. A person with good intentions genuinely cares for others and acts in their best interest.  
+- **Competence** is the ability, skills, and knowledge to fulfill promises and responsibilities. Without competence, even good intentions may not be enough to gain trust.  
+
+**Example:** A doctor with pure intentions but lacking medical expertise cannot be trusted with patients' health. Similarly, a highly skilled but unethical doctor who overcharges or prescribes unnecessary treatments will also lose trust.  
+
+---
+
+**(b) Justice in Human Relationships & Its Fulfillment**  
+
+Justice in relationships means treating others with **fairness, equality, and respect**, ensuring everyone gets what they deserve. It promotes harmony and well-being.  
+
+**Program for Fulfillment:**  
+1. **Understand Needs** – Recognize what is fair for all.  
+2. **Open Communication** – Encourage dialogue to express concerns and expectations.  
+3. **Mutual Respect** – Treat others with dignity and acknowledge their contributions.  
+4. **Balanced Decision-Making** – Ensure fairness in resolving conflicts and sharing resources.  
+5. **Accountability** – Hold individuals responsible for their actions to maintain trust and justice.  
+
+## question 4
+(a) Harmony in Nature and Contributions of Components
+
+Harmony in nature is the balanced coexistence of all living and non-living elements, ensuring ecosystem stability.
+
+Contributions:
+
+Plants – Release oxygen, absorb CO₂, provide food and shelter.
+Animals – Aid in pollination, seed dispersal, and food chain balance.
+Microorganisms – Decompose matter, recycle nutrients, enrich soil.
+Water Bodies – Support aquatic life, regulate temperature, provide fresh water.
+Air & Atmosphere – Stabilize climate, support respiration.
+Each component interacts to sustain life and prevent resource depletion.
+
+(b) Recyclability & Self-Regulation in Nature’s Balance
+
+These processes ensure resource reuse and ecosystem stability.
+
+Recyclability: Natural cycles (carbon, nitrogen, water) recycle essential elements. Decomposers return nutrients to the soil.
+Self-Regulation: Ecosystems maintain balance through predator-prey relationships, population control, and natural selection.
+These mechanisms prevent depletion and sustain life on Earth.
+These mechanisms ensure that resources are not depleted and life continues to thrive sustainably on Earth.
+
+
+
 
 SECTION A (10 Marks)
 (a) Define the term Justice in human-human relationships.
@@ -23,53 +73,4 @@ One example is pollination, where bees collect nectar from flowers for food whil
 (e) What is meant by ethical human conduct?
 Ethical human conduct refers to behavior that is guided by moral values such as honesty, fairness, respect, and responsibility. It ensures that individuals act in ways that promote harmony, justice, and well-being in society.
 
-# SECTION B
-## QUESTION 2
-(a) Difference Between Intention and Competence in Building Trust
-Trust is built on two key factors: intention and competence.
 
-Intention refers to a person's honesty, goodwill, and moral values. It reflects whether they genuinely care for others and act in their best interest.
-Competence refers to a person's ability, skills, and knowledge to fulfill their promises and responsibilities. Even with good intentions, a person who lacks competence may fail to deliver results, leading to distrust.
-Real-life Example:
-A doctor may have the best intentions to save lives, but if they lack medical competence, patients will not trust them with their health. On the other hand, a highly skilled but unethical doctor who overcharges patients or prescribes unnecessary treatments will also lose trust.
-
-(b) Meaning of Justice in Human Relationships and a Program for Its Fulfillment
-Justice in human relationships means treating others with fairness, equality, and respect, ensuring that each person gets what they deserve. It involves recognizing the rights and responsibilities of individuals in a way that promotes harmony and well-being.
-
-Program for Fulfillment:
-To ensure mutual happiness, the following steps can be implemented:
-
-Understanding Needs: Recognizing what is fair and just for both parties.
-Open Communication: Encouraging dialogue to express concerns and expectations.
-Mutual Respect: Treating others with dignity and acknowledging their contributions.
-Balanced Decision-Making: Ensuring fairness in resolving conflicts or distributing resources.
-Accountability: Holding individuals responsible for their actions to maintain trust and fairness.
-By applying these principles, relationships can be strengthened, leading to long-term happiness for all involved.
-
-## question 4
-(a) Harmony in Nature and Contribution of Different Components
-
-Harmony in nature refers to the balanced coexistence of all living and non-living components, ensuring the smooth functioning of ecosystems. Every element in nature plays a crucial role in maintaining this balance.
-
-Contributions of Different Components:
-
-Plants: Absorb carbon dioxide, release oxygen, and provide food and shelter for various organisms.
-Animals: Help in pollination, seed dispersal, and maintaining population balance through food chains.
-Microorganisms: Decompose organic matter, recycle nutrients, and maintain soil fertility.
-Water Bodies: Support aquatic life, regulate temperature, and provide fresh water for survival.
-Air and Atmosphere: Maintain climate stability and support respiration.
-Each component interacts in a way that supports life, preventing overuse or depletion of resources, ensuring sustainability.
-
-(b) Role of Recyclability and Self-Regulation in Maintaining Balance in Nature
-
-Recyclability and self-regulation are two fundamental processes that maintain nature’s balance by ensuring resources are continuously reused and ecosystems remain stable.
-
-Recyclability:
-
-Natural processes like the carbon, nitrogen, and water cycles help in the reuse of essential elements.
-Decomposers like bacteria and fungi break down dead organisms, returning nutrients to the soil, which plants reuse.
-Self-Regulation:
-
-Ecosystems regulate themselves through predator-prey relationships, population control, and natural selection.
-If one species overpopulates, natural factors like food scarcity, diseases, or predators bring the numbers back to balance.
-These mechanisms ensure that resources are not depleted and life continues to thrive sustainably on Earth.
