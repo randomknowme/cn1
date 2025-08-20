@@ -5,6 +5,9 @@ https://github.com/randomknowme/cn2
 https://github.com/randomknowme/cn3
 # ANSWER
 
+all
+https://colab.research.google.com/drive/1nFyiR4whaiQcR486QZ8KUBkt2tOmJZFJ?usp=sharing
+
 1
 https://colab.research.google.com/drive/1SvASHmOnxn8ZfFsJDE9ex9mB_ULbxouR?usp=sharing#scrollTo=gIjH34CpPB7l
 
@@ -16,6 +19,7 @@ https://colab.research.google.com/drive/1j_L0ri2G5LyVCPuKoE1Gx6U3hK_n7O32?usp=sh
 
 5
 https://colab.research.google.com/drive/1KAM8LzZbbMQ1MruhUTRH5Y9gz_mutSo4?usp=sharing
+
 
 https://chatgpt.com/share/68a4c518-f654-8006-8ca1-d38821f00840
 
