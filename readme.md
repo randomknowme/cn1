@@ -401,6 +401,7 @@ Length of Longest Substring: 3
 ---
 
 Q10. Spiral Matrix
+
 <img width="506" height="402" alt="image" src="https://github.com/user-attachments/assets/dc0c78f9-342e-4e99-b815-f3899bea3056" />
 
 Aim:
