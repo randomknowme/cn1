@@ -313,29 +313,34 @@ Description:
 Use two heaps: max-heap (left) for smaller half, min-heap (right) for larger half. Balance them.
 
 Full Code:
-
 ```py
 import heapq
 
 class MedianFinder:
-    def __init__(self):
-        self.left = []   # max-heap (store negatives)
-        self.right = []  # min-heap
 
-    def addNum(self, num):
+    def __init__(self):  # ✅ Fixed constructor
+        self.left = []   # max heap (store negative values)
+        self.right = []  # min heap
+
+    def addNum(self, num: int) -> None:
+        # Always push to left (max heap) first
         heapq.heappush(self.left, -num)
-        if self.left and self.right and -self.left[0] > self.right[0]:
-            ele = -heapq.heappop(self.left)
-            heapq.heappush(self.right, ele)
-        if len(self.left) > len(self.right) + 1:
-            ele = -heapq.heappop(self.left)
-            heapq.heappush(self.right, ele)
-        if len(self.right) > len(self.left) + 1:
-            ele = heapq.heappop(self.right)
-            heapq.heappush(self.left, -ele)
 
-    def findMedian(self):
-        if len(self.right) == len(self.left):
+        # Ensure left max <= right min
+        if self.left and self.right and -self.left[0] > self.right[0]:
+            val = -heapq.heappop(self.left)
+            heapq.heappush(self.right, val)
+
+        # Balance heaps (sizes differ at most by 1)
+        if len(self.left) > len(self.right) + 1:
+            val = -heapq.heappop(self.left)
+            heapq.heappush(self.right, val)
+        if len(self.right) > len(self.left) + 1:
+            val = heapq.heappop(self.right)
+            heapq.heappush(self.left, -val)
+
+    def findMedian(self) -> float:
+        if len(self.left) == len(self.right):
             return (-self.left[0] + self.right[0]) / 2
         elif len(self.left) > len(self.right):
             return -self.left[0]
@@ -343,13 +348,13 @@ class MedianFinder:
             return self.right[0]
 
 
-if __name__ == "__main__":
-    mf = MedianFinder()
-    mf.addNum(1)
-    mf.addNum(2)
-    print("Median:", mf.findMedian())
-    mf.addNum(3)
-    print("Median:", mf.findMedian())
+# Example usage:
+obj = MedianFinder()
+obj.addNum(1)
+obj.addNum(2)
+print(obj.findMedian())  # 1.5
+obj.addNum(3)
+print(obj.findMedian())  # 2
 ```
 
 Complexity:
