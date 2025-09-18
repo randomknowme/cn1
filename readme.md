@@ -367,345 +367,366 @@ Median: 2
 
 ---
 
-Q9. Longest Substring Without Repeating Characters
-Aim:
-Find the length of the longest substring without repeating characters.
+Q9 → Rotate Matrix
+Aim
 
-Description:
-Use sliding window with a set to track characters. Move left pointer when duplicate found.
+Rotate a square matrix by 90 degrees clockwise in-place.
 
-Full Code:
+Description
 
+We first transpose the matrix (swap matrix[i][j] with matrix[j][i] for all i < j) and then reverse each row. This gives the rotated matrix without using extra space.
+
+Full Code
 ```py
-class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        seen = set()
-        l = 0
-        maxlen = 0
-        for r in range(len(s)):
-            while s[r] in seen:
-                seen.remove(s[l])
-                l += 1
-            seen.add(s[r])
-            maxlen = max(maxlen, r - l + 1)
-        return maxlen
+from typing import List
 
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        for i in range(0, len(matrix) - 1):
+            for j in range(i + 1, len(matrix)):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        
+        for i in range(0, len(matrix)):
+            matrix[i].reverse()
 
 if __name__ == "__main__":
-    s = "abcabcbb"
-    print("Length of Longest Substring:", Solution().lengthOfLongestSubstring(s))
+    matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    Solution().rotate(matrix)
+    print(matrix)
 ```
+Time Complexity
 
-Complexity:
-Time: O(n)
-Space: O(n)
+O(n²) (transpose + reverse each row)
 
-Output:
-Length of Longest Substring: 3
+Space Complexity
 
----
+O(1) (in-place)
 
-Q10. Spiral Matrix
+Sample Output
+[[7, 4, 1], [8, 5, 2], [9, 6, 3]]
 
-<img width="506" height="402" alt="image" src="https://github.com/user-attachments/assets/dc0c78f9-342e-4e99-b815-f3899bea3056" />
+Q10 → Spiral Order
+Aim
 
-Aim:
-Return elements of a matrix in spiral order.
+Return all elements of a matrix in spiral order.
 
-Description:
-Use boundaries (top, bottom, left, right) and traverse in 4 directions until all elements are covered.
+Description
 
-Full Code:
+We use four boundaries (top, bottom, left, right) and iterate layer by layer in spiral order until all elements are traversed.
 
+Full Code
 ```py
+from typing import List
+
 class Solution:
-    def spiralOrder(self, matrix):
-        n = len(matrix)
-        m = len(matrix[0])
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        n, m = len(matrix), len(matrix[0])
         top, bottom, left, right = 0, n - 1, 0, m - 1
         ans = []
+
         while left <= right and top <= bottom:
             for i in range(left, right + 1):
                 ans.append(matrix[top][i])
             top += 1
+
             for i in range(top, bottom + 1):
                 ans.append(matrix[i][right])
             right -= 1
+
             if top <= bottom:
                 for i in range(right, left - 1, -1):
                     ans.append(matrix[bottom][i])
                 bottom -= 1
+
             if left <= right:
                 for i in range(bottom, top - 1, -1):
                     ans.append(matrix[i][left])
                 left += 1
+
         return ans
 
-
 if __name__ == "__main__":
-    mat = [[1,2,3],[4,5,6],[7,8,9]]
-    print("Spiral Order:", Solution().spiralOrder(mat))
+    matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    print(Solution().spiralOrder(matrix))
 ```
+Time Complexity
 
-Complexity:
-Time: O(m × n)
-Space: O(1)
+O(n·m) (each element visited once)
 
-Output:
-Spiral Order: \[1, 2, 3, 6, 9, 8, 7, 4, 5]
+Space Complexity
 
----
+O(1) (excluding output list)
 
-Q11. Container With Most Water
-Aim:
-Find two lines that form a container holding the most water.
+Sample Output
+[1, 2, 3, 6, 9, 8, 7, 4, 5]
 
-Description:
-Use two pointers at both ends, calculate area, and move inward from shorter line.
+Q11 → Set Matrix Zeroes
+Aim
 
-Full Code:
+Modify a matrix in-place such that if any element is 0, its entire row and column become 0.
 
+Description
+
+We use the first row and first column as markers to indicate which rows/columns need to be zeroed, and a flag (col0) to track the first column separately.
+
+Full Code
 ```py
+from typing import List
+
 class Solution:
-    def maxArea(self, height):
-        l, r = 0, len(height) - 1
-        maxarea = 0
-        while l < r:
-            area = min(height[l], height[r]) * (r - l)
-            maxarea = max(maxarea, area)
-            if height[l] < height[r]:
-                l += 1
-            else:
-                r -= 1
-        return maxarea
-
-
-if __name__ == "__main__":
-    h = [1,8,6,2,5,4,8,3,7]
-    print("Max Area:", Solution().maxArea(h))
-```
-
-Complexity:
-Time: O(n)
-Space: O(1)
-
-Output:
-Max Area: 49
-
----
-
-Q12. 3Sum
-Aim:
-Find all unique triplets in array that sum to zero.
-
-Description:
-Sort array, fix one element, then use two-pointer approach to find pairs.
-
-Full Code:
-
-```py
-class Solution:
-    def threeSum(self, nums):
-        nums.sort()
-        res = []
-        n = len(nums)
-        for i in range(n):
-            if i > 0 and nums[i] == nums[i-1]:
-                continue
-            l, r = i + 1, n - 1
-            while l < r:
-                total = nums[i] + nums[l] + nums[r]
-                if total < 0:
-                    l += 1
-                elif total > 0:
-                    r -= 1
-                else:
-                    res.append([nums[i], nums[l], nums[r]])
-                    l += 1
-                    while l < r and nums[l] == nums[l-1]:
-                        l += 1
-        return res
-
-
-if __name__ == "__main__":
-    nums = [-1,0,1,2,-1,-4]
-    print("Triplets:", Solution().threeSum(nums))
-```
-
-Complexity:
-Time: O(n²)
-Space: O(1) (excluding output)
-
-Output:
-Triplets: \[\[-1, -1, 2], \[-1, 0, 1]]
-
----
-
-Q13. Remove Duplicates from Sorted Array
-Aim:
-Remove duplicates in-place such that each unique element appears once.
-
-Description:
-Use two pointers. One iterates through array, the other tracks unique elements.
-
-Full Code:
-
-```py
-class Solution:
-    def removeDuplicates(self, nums):
-        if not nums:
-            return 0
-        i = 0
-        for j in range(1, len(nums)):
-            if nums[j] != nums[i]:
-                i += 1
-                nums[i] = nums[j]
-        return i + 1
-
-
-if __name__ == "__main__":
-    arr = [0,0,1,1,1,2,2,3,3,4]
-    k = Solution().removeDuplicates(arr)
-    print("Unique count:", k)
-    print("Modified array:", arr[:k])
-```
-
-Complexity:
-Time: O(n)
-Space: O(1)
-
-Output:
-Unique count: 5
-Modified array: \[0, 1, 2, 3, 4]
-
----
-
-Q14. Rotate Image
-Aim:
-Rotate an n×n matrix by 90 degrees (clockwise).
-
-Description:
-First transpose matrix, then reverse each row.
-
-Full Code:
-
-```py
-class Solution:
-    def rotate(self, matrix):
-        n = len(matrix)
-        # Transpose
-        for i in range(n):
-            for j in range(i, n):
-                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-        # Reverse each row
-        for row in matrix:
-            row.reverse()
-        return matrix
-
-
-if __name__ == "__main__":
-    mat = [[1,2,3],[4,5,6],[7,8,9]]
-    print("Rotated Matrix:", Solution().rotate(mat))
-```
-
-Complexity:
-Time: O(n²)
-Space: O(1)
-
-Output:
-Rotated Matrix: \[\[7, 4, 1], \[8, 5, 2], \[9, 6, 3]]
-
----
-
-Q15. Word Search
-Aim:
-Determine if a word exists in a 2D board of characters.
-
-Description:
-Use DFS with backtracking, exploring up, down, left, right while marking visited.
-
-Full Code:
-
-```py
-class Solution:
-    def exist(self, board, word):
-        n, m = len(board), len(board[0])
-
-        def dfs(i, j, idx):
-            if idx == len(word):
-                return True
-            if i < 0 or j < 0 or i >= n or j >= m or board[i][j] != word[idx]:
-                return False
-            temp = board[i][j]
-            board[i][j] = "#"
-            found = (dfs(i+1,j,idx+1) or dfs(i-1,j,idx+1) or
-                     dfs(i,j+1,idx+1) or dfs(i,j-1,idx+1))
-            board[i][j] = temp
-            return found
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        n, m = len(matrix), len(matrix[0])
+        col0 = 1
 
         for i in range(n):
             for j in range(m):
-                if dfs(i, j, 0):
-                    return True
-        return False
+                if matrix[i][j] == 0:
+                    matrix[i][0] = 0
+                    if j != 0:
+                        matrix[0][j] = 0
+                    else:
+                        col0 = 0 
+        
+        for i in range(1, n):
+            for j in range(1, m):
+                if matrix[i][0] == 0 or matrix[0][j] == 0:
+                    matrix[i][j] = 0
 
+        if matrix[0][0] == 0:
+            for j in range(m):
+                matrix[0][j] = 0
+        
+        if col0 == 0:
+            for i in range(n):
+                matrix[i][0] = 0
 
 if __name__ == "__main__":
-    board = [
-        ["A","B","C","E"],
-        ["S","F","C","S"],
-        ["A","D","E","E"]
-    ]
-    word = "ABCCED"
-    print("Exists:", Solution().exist(board, word))
+    matrix = [[1,1,1],[1,0,1],[1,1,1]]
+    Solution().setZeroes(matrix)
+    print(matrix)
 ```
+Time Complexity
 
-Complexity:
-Time: O(n × m × 4^L), where L = length of word
-Space: O(L) recursion stack
+O(n·m)
 
-Output:
-Exists: True
+Space Complexity
 
----
+O(1)
 
-Q16. Largest Rectangle in Histogram
-Aim:
-Find the largest rectangle area in a histogram.
+Sample Output
+[[1,0,1],[0,0,0],[1,0,1]]
 
-Description:
-Use stack to maintain increasing bars, calculate area when popping.
+Q12 → Valid Anagram
+Aim
 
-Full Code:
+Check if two strings are anagrams.
 
+Description
+
+We count the frequency of characters in s and then decrement counts using t. If counts match, they are anagrams.
+
+Full Code
 ```py
 class Solution:
-    def largestRectangleArea(self, heights):
-        st = []
-        maxarea = 0
-        heights.append(0)
-        for i, h in enumerate(heights):
-            while st and heights[st[-1]] > h:
-                height = heights[st.pop()]
-                width = i if not st else i - st[-1] - 1
-                maxarea = max(maxarea, height * width)
-            st.append(i)
-        return maxarea
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
 
+        freq = {}
+        for i in s:
+            freq[i] = freq.get(i, 0) + 1
+
+        for i in t:
+            if i not in freq or freq[i] == 0:
+                return False
+            freq[i] -= 1
+
+        return True
 
 if __name__ == "__main__":
-    heights = [2,1,5,6,2,3]
-    print("Largest Rectangle Area:", Solution().largestRectangleArea(heights))
+    print(Solution().isAnagram("anagram", "nagaram"))
+    print(Solution().isAnagram("rat", "car"))
 ```
+Time Complexity
 
-Complexity:
-Time: O(n)
-Space: O(n)
+O(n)
 
-Output:
-Largest Rectangle Area: 10
+Space Complexity
 
----
+O(1) (since only lowercase letters)
+
+Sample Output
+True
+False
+
+Q13 → Longest Consecutive Sequence
+Aim
+
+Find the length of the longest consecutive sequence in an array.
+
+Description
+
+We use a set for O(1) lookups. For each element, if it’s the start of a sequence, extend forward to count length.
+
+Full Code
+```py
+from typing import List
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        
+        longest = 1
+        mySet = set(nums)
+
+        for i in mySet:
+            if (i - 1) in mySet:
+                continue
+            cnt, x = 1, i
+            while (x + 1) in mySet:
+                x += 1
+                cnt += 1
+            longest = max(cnt, longest)
+        
+        return longest
+
+if __name__ == "__main__":
+    print(Solution().longestConsecutive([100,4,200,1,3,2]))
+```
+Time Complexity
+
+O(n) (on average with hashing)
+
+Space Complexity
+
+O(n)
+
+Sample Output
+4
+
+Q14 → Longest Common Prefix
+Aim
+
+Find the longest common prefix among an array of strings.
+
+Description
+
+We first select the shortest string, then compare prefixes with each other string and shrink as necessary.
+
+Full Code
+```py
+from typing import List
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        mini = 1e9
+        word = ""
+
+        for i in strs:
+            if mini > len(i):
+                mini = len(i)
+                word = i
+        
+        for n in strs:
+            for i in range(len(word)):
+                if i == 0 and word[0] != n[0]:
+                    return ""
+                if word[i] != n[i]:
+                    word = word[:i]
+                    break
+
+        return word
+
+if __name__ == "__main__":
+    print(Solution().longestCommonPrefix(["flower","flow","flight"]))
+    print(Solution().longestCommonPrefix(["dog","racecar","car"]))
+```
+Time Complexity
+
+O(n·m) (n = no. of strings, m = min length string)
+
+Space Complexity
+
+O(1)
+
+Sample Output
+fl
+""
+
+Q15 → GCD of Min & Max
+Aim
+
+Find the GCD of the minimum and maximum element of an array.
+
+Description
+
+We use the Euclidean algorithm for GCD on the smallest and largest numbers in the list.
+
+Full Code
+```py
+from typing import List
+
+class Solution:
+    def findGCD(self, nums: List[int]) -> int:
+        a = min(nums)
+        b = max(nums)
+
+        def myGCD(a, b):
+            while b != 0:
+                a, b = b, a % b
+            return a
+        
+        return myGCD(a, b)
+
+if __name__ == "__main__":
+    print(Solution().findGCD([2,5,6,9,10]))
+```
+Time Complexity
+
+O(log(min(a, b)))
+
+Space Complexity
+
+O(1)
+
+Sample Output
+2
+
+Q16 → Find Intersection Values
+Aim
+
+Find how many elements of one array appear in another and return counts for both arrays.
+
+Description
+
+We convert arrays to sets for O(1) membership check and count occurrences.
+
+Full Code
+```py
+from typing import List
+
+class Solution:
+    def findIntersectionValues(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        set1, set2 = set(nums1), set(nums2)
+        c1 = sum(1 for i in nums1 if i in set2)
+        c2 = sum(1 for i in nums2 if i in set1)
+        return [c1, c2]
+
+if __name__ == "__main__":
+    print(Solution().findIntersectionValues([4,3,2,3,1],[2,2,5,2,3,6]))
+```
+Time Complexity
+
+O(n + m)
+
+Space Complexity
+
+O(n + m)
+
+Sample Output
+[3, 2]
+
 
 
 # END
