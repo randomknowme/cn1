@@ -5,6 +5,10 @@ https://github.com/randomknowme/cn2
 https://github.com/randomknowme/cn3
 # ANSWER
 
+# photos
+https://quickshare.samsungcloud.com/fzSxXYD12PPw
+# chat gpt link
+https://chatgpt.com/share/690865b6-e3bc-8009-ad4e-e80d47a7e162
 
 ---
 
