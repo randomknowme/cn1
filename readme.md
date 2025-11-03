@@ -6,535 +6,362 @@ https://github.com/randomknowme/cn3
 # ANSWER
 
 
-
 ---
 
-## 🧩 **U1 – Reverse Linked List**
-
-**Aim**
-Reverse a singly linked list.
-
-**Description – 3m**
-Uses recursion to reverse the linked list — the tail becomes the new head.
-
-**Example – 2m**
-Input: `[1, 2, 3, 4, 5]`
-Output: `[5, 4, 3, 2, 1]`
-
-**Program – 5m**
-
-```python
-class ListNode:
-    def __init__(self, val=0, nxt=None):
-        self.val = val
-        self.next = nxt
-
-def reverseList(head):
-    if not head or not head.next:
-        return head
-    newHead = reverseList(head.next)
-    head.next.next = head
-    head.next = None
-    return newHead
-
-# Simplified main
-a = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
-res = reverseList(a)
-out = []
-while res:
-    out.append(res.val)
-    res = res.next
-print(out)
-```
-
-**Expected Output**
-`[5, 4, 3, 2, 1]`
-
-**Actual Output – 2m**
-`[5, 4, 3, 2, 1]`
-
----
-
-## 🧩 **U1 – Remove Nth Node From End**
-
-**Aim**
-Remove the nth node from the end of a linked list.
-
-**Description – 3m**
-Move one pointer `n` steps ahead, then move both until the first reaches the end; remove the node.
-
-**Example – 2m**
-Input: `[1,2,3,4,5], n=2`
-Output: `[1,2,3,5]`
-
-**Program – 5m**
-
-```python
-class ListNode:
-    def __init__(self, val=0, nxt=None):
-        self.val = val
-        self.next = nxt
-
-def removeNthFromEnd(head, n):
-    if not head or not head.next:
-        return None
-    slow = fast = head
-    for _ in range(n):
-        fast = fast.next
-    if not fast:
-        return head.next
-    while fast.next:
-        slow = slow.next
-        fast = fast.next
-    slow.next = slow.next.next
-    return head
-
-# Main simplified
-a = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
-res = removeNthFromEnd(a, 2)
-out = []
-while res:
-    out.append(res.val)
-    res = res.next
-print(out)
-```
-
-**Expected Output**
-`[1, 2, 3, 5]`
-
-**Actual Output – 2m**
-`[1, 2, 3, 5]`
-
----
-
-## 🧩 **U2 – Top K Frequent Elements**
-
-**Aim**
-Return the `k` most frequent elements from an array.
-
-**Description – 3m**
-Count frequencies and bucket them; collect top `k` elements from highest frequencies.
-
-**Example – 2m**
-Input: `[1,1,1,2,2,3], k=2`
-Output: `[1,2]`
-
-**Program – 5m**
-
-```python
-def topKFrequent(nums, k):
-    freq = {}
-    for num in nums:
-        freq[num] = freq.get(num, 0) + 1
-
-    bucket = [[] for _ in range(len(nums)+1)]
-    for key, val in freq.items():
-        bucket[val].append(key)
-
-    res = []
-    for i in range(len(bucket)-1, 0, -1):
-        for val in bucket[i]:
-            res.append(val)
-            if len(res) == k:
-                return res
-
-print(topKFrequent([1,1,1,2,2,3], 2))
-```
-
-**Expected Output**
-`[1, 2]`
-
-**Actual Output – 2m**
-`[1, 2]`
-
----
-
-## 🧩 **U2 – Product of Array Except Self**
-
-**Aim**
-Return an array where each element is product of all others except itself.
-
-**Description – 3m**
-Use prefix and postfix multiplication to avoid division and keep O(1) extra space.
-
-**Example – 2m**
-Input: `[1,2,3,4]`
-Output: `[24,12,8,6]`
-
-**Program – 5m**
-
-```python
-def productExceptSelf(nums):
-    n = len(nums)
-    res = [1] * n
-
-    prefix = 1
-    for i in range(n):
-        res[i] = prefix
-        prefix *= nums[i]
-
-    postfix = 1
-    for i in range(n-1, -1, -1):
-        res[i] *= postfix
-        postfix *= nums[i]
-
-    return res
-
-print(productExceptSelf([1,2,3,4]))
-```
-
-**Expected Output**
-`[24, 12, 8, 6]`
-
-**Actual Output – 2m**
-`[24, 12, 8, 6]`
-
----
-
-## 🧩 **U3 – Common Elements Between Two Arrays**
-
-**Aim**
-Count how many elements of each array appear in the other.
-
-**Description – 3m**
-Use sets for fast membership checks;
-count common elements individually for each list.
-
-**Example – 2m**
-`nums1=[1,2,2,3], nums2=[2,2,4]` → `[2,2]`
-
-**Program – 5m**
-
-```python
-def findIntersectionValues(nums1, nums2):
-    set1, set2 = set(nums1), set(nums2)
-    c1 = sum(1 for x in nums1 if x in set2)
-    c2 = sum(1 for x in nums2 if x in set1)
-    return [c1, c2]
-
-print(findIntersectionValues([1,2,2,3], [2,2,4]))
-```
-
-**Expected Output**
-`[2, 2]`
-
-**Actual Output – 2m**
-`[2, 2]`
-
----
-
-## 🧩 **U3 – Ugly Number**
-
-**Aim**
-Check if the number’s only prime factors are 2, 3, and 5.
-
-**Description – 3m**
-Keep dividing the number by 2, 3, 5 while divisible.
-If final value equals 1 → it’s ugly.
-
-**Example – 2m**
-6 → True
-14 → False
-
-**Program – 5m**
-
-```python
-def isUgly(n):
-    if n <= 0: return False
-    for p in [2, 3, 5]:
-        while n % p == 0:
-            n //= p
-    return n == 1
-
-print(isUgly(6))
-print(isUgly(14))
-```
-
-**Expected Output**
-
-```
-True
-False
-```
-
-**Actual Output – 2m**
-
-```
-True
-False
+# Set-1 — EMPLOYEE (questions 1 and 2)
+
+**Q1 (i, ii, iii):** create `EMPLOYEE`, insert 5 rows; create view `EmployeeView` and give 10% hike to attendance > 95; show average/max/min salary per dept.
+**Q2:** PL/SQL program to decrease salary by 10% for employees whose attendance < 70 and show output.
+
+```sql
+-- ===== Set-1 =====
+-- 1.a Create EMPLOYEE table
+CREATE TABLE EMPLOYEE (
+  EID NUMBER PRIMARY KEY,
+  ENAME VARCHAR2(50),
+  DEPT VARCHAR2(20),
+  LOCATION VARCHAR2(30),
+  SALARY NUMBER(10,2),
+  ATTENDANCE_PERCENTAGE NUMBER(5,2)
+);
+
+-- 1.b Insert sample rows
+INSERT INTO EMPLOYEE VALUES (1, 'Arun',  'CSE', 'Hyderabad', 50000, 96.5);
+INSERT INTO EMPLOYEE VALUES (2, 'Bhavana','ECE', 'Vijayawada', 48000, 92.0);
+INSERT INTO EMPLOYEE VALUES (3, 'Chaitra','CSE', 'Vizag',     52000, 97.2);
+INSERT INTO EMPLOYEE VALUES (4, 'Deepak', 'MECH','Guntur',    45000, 89.5);
+INSERT INTO EMPLOYEE VALUES (5, 'Esha',   'CSE', 'Hyderabad', 47000, 99.1);
+COMMIT;
+
+-- 1.c Create view of EID, ENAME, DEPT, SALARY
+CREATE OR REPLACE VIEW EmployeeView AS
+SELECT EID, ENAME, DEPT, SALARY, ATTENDANCE_PERCENTAGE
+FROM EMPLOYEE;
+
+-- 1.d Give 10% hike to employees with attendance > 95
+UPDATE EMPLOYEE
+SET SALARY = SALARY * 1.10
+WHERE ATTENDANCE_PERCENTAGE > 95;
+COMMIT;
+
+-- Verify the view
+SELECT * FROM EmployeeView;
+
+-- 1.e Aggregate: avg, max, min salary per department
+SELECT DEPT,
+       ROUND(AVG(SALARY),2) AS AVG_SAL,
+       MAX(SALARY) AS MAX_SAL,
+       MIN(SALARY) AS MIN_SAL
+FROM EMPLOYEE
+GROUP BY DEPT;
+
+-- 2. PL/SQL: decrease salary by 10% for employees whose attendance < 70
+SET SERVEROUTPUT ON;
+DECLARE
+  CURSOR emp_cur IS
+    SELECT EID, SALARY
+    FROM EMPLOYEE
+    WHERE ATTENDANCE_PERCENTAGE < 70;
+BEGIN
+  FOR rec IN emp_cur LOOP
+    UPDATE EMPLOYEE
+    SET SALARY = SALARY - (SALARY * 0.10)
+    WHERE EID = rec.EID;
+    DBMS_OUTPUT.PUT_LINE('Salary decreased for Employee ID: ' || rec.EID);
+  END LOOP;
+  COMMIT;
+END;
+/
 ```
 
 ---
 
-## 🧩 **U4 – Best Time to Buy Stocks**
+# Set-2 — STUDENT (questions 1 and 2)
 
-**Aim**
-Maximize profit with one buy and one sell.
+**Q1 (i, ii, iii):** create `STUDENT`, insert 5 tuples; create `STUD_VIEW` (ROLLNO, NAME, BRANCH, CGPA) and delete students whose CGPA < 3.0 via view; display average CGPA branch-wise with avg > 7.0.
+**Q2:** create `STUDENT_COPY` and trigger to save deleted data.
 
-**Description  3m**
-Track the minimum price seen so far and update the maximum profit as the difference between current price and the minimum.
+```sql
+-- ===== Set-2 =====
+-- 1.a Create STUDENT table
+CREATE TABLE STUDENT (
+  ROLLNO NUMBER PRIMARY KEY,
+  NAME VARCHAR2(30),
+  BRANCH VARCHAR2(10),
+  SEM NUMBER(2),
+  CGPA NUMBER(3,1),
+  BACKLOGS NUMBER(2),
+  CITY VARCHAR2(20),
+  CONTACTNO VARCHAR2(15)
+);
 
-**Example 2m**
-Input: `[7,1,5,3,6,4]` → Output: `5`
+-- 1.b Insert sample rows
+INSERT INTO STUDENT VALUES (101,'Ravi',  'CSE',5,8.5,0,'Hyderabad','9876543210');
+INSERT INTO STUDENT VALUES (102,'Sita',  'ECE',4,7.2,1,'Mumbai',  '8974563210');
+INSERT INTO STUDENT VALUES (103,'Arjun', 'EEE',6,2.8,5,'Chennai', '9988776655');
+INSERT INTO STUDENT VALUES (104,'Meera', 'CSE',5,6.0,2,'Delhi',   '9911223344');
+INSERT INTO STUDENT VALUES (105,'Kiran', 'ECE',4,9.1,0,'Hyderabad','7788996655');
+COMMIT;
 
-**Program 5m**
+-- 1.c Create view STUD_VIEW
+CREATE OR REPLACE VIEW STUD_VIEW AS
+SELECT ROLLNO, NAME, BRANCH, CGPA
+FROM STUDENT;
 
-```python
-def maxProfit(prices):
-    mini = prices[0]
-    maxProfit = 0
-    for i in range(1, len(prices)):
-        maxProfit = max(maxProfit, prices[i] - mini)
-        mini = min(mini, prices[i])
-    return maxProfit
+-- Delete students whose CGPA < 3.0 using the view (implements the second subtask)
+DELETE FROM STUD_VIEW
+WHERE ROLLNO IN (SELECT ROLLNO FROM STUDENT WHERE CGPA < 3.0);
+COMMIT;
 
-print(maxProfit([7,1,5,3,6,4]))
+-- 1.d Display average CGPA branch-wise having avg > 7.0
+SELECT BRANCH,
+       ROUND(AVG(CGPA),2) AS AVG_CGPA
+FROM STUDENT
+GROUP BY BRANCH
+HAVING AVG(CGPA) > 7.0;
+
+-- 2. Create copy table and delete trigger to store deleted rows
+CREATE TABLE STUDENT_COPY AS
+SELECT * FROM STUDENT WHERE 1=0; -- empty structure
+
+CREATE OR REPLACE TRIGGER SAVE_DELETED_DATA
+AFTER DELETE ON STUDENT
+FOR EACH ROW
+BEGIN
+  INSERT INTO STUDENT_COPY VALUES (
+     :OLD.ROLLNO,
+     :OLD.NAME,
+     :OLD.BRANCH,
+     :OLD.SEM,
+     :OLD.CGPA,
+     :OLD.BACKLOGS,
+     :OLD.CITY,
+     :OLD.CONTACTNO
+  );
+END;
+/
+
+-- Test trigger (example)
+-- DELETE FROM STUDENT WHERE ROLLNO = 103;
+-- SELECT * FROM STUDENT_COPY;
 ```
-
-**Expected output**
-`5`
-
-**Actual output 2m**
-`5`
 
 ---
 
-## 🧩 **U4 – Longest Repeating Character Replacement**
+# Set-3 — LIBRARY (questions 1 and 2)
 
-**Aim**
-Find the length of the longest substring where you can replace at most `k` characters to make all characters the same.
+**Q1 (i, ii, iii):** create `LIBRARY` table + 5 inserts; create view `LIB_VIEW` (LIBRARY_NAME, LOCATION, NO_OF_BOOKS, HELPLINE_NO); update KRC Library no_of_books by +550; display libraries having more books than average using nested subquery.
+**Q2:** PL/SQL cursor to decrease number of employees by 10% for libraries with more than 25 employees.
 
-**Description  3m**
-Use a sliding window that tracks character frequencies and the maximum character frequency in the window. If window size minus max frequency > k, shrink from left.
+```sql
+-- ===== Set-3 =====
+-- 3.a Create LIBRARY table
+CREATE TABLE LIBRARY (
+  LIBRARY_NAME VARCHAR2(40) PRIMARY KEY,
+  LOCATION VARCHAR2(30),
+  NO_OF_BOOKS NUMBER(8),
+  NO_OF_EMPLOYEES NUMBER(5),
+  LIBRARY_HEAD VARCHAR2(30),
+  DATE_OF_ESTABLISHMENT DATE,
+  HELPLINE_NO VARCHAR2(15)
+);
 
-**Example 2m**
-Input: `s = "AABABBA", k = 1` → Output: `4`
+-- 3.b Insert sample rows
+INSERT INTO LIBRARY VALUES ('KRC Library',     'Hyderabad', 42000, 30, 'Mr. Ramesh', TO_DATE('12-02-1998','DD-MM-YYYY'), '1800123456');
+INSERT INTO LIBRARY VALUES ('City Central',    'Mumbai',    39000, 22, 'Mrs. Kavita',TO_DATE('05-06-2001','DD-MM-YYYY'), '1800765432');
+INSERT INTO LIBRARY VALUES ('Tech Books Hub',  'Bangalore', 45000, 28, 'Mr. Ajay',   TO_DATE('21-09-2010','DD-MM-YYYY'), '1800543210');
+INSERT INTO LIBRARY VALUES ('Readers Point',   'Chennai',   25000, 19, 'Mr. Manoj',  TO_DATE('11-11-2005','DD-MM-YYYY'), '1800678912');
+INSERT INTO LIBRARY VALUES ('National Library','Delhi',     80000, 40, 'Dr. Meena',  TO_DATE('01-01-1950','DD-MM-YYYY'), '1800987654');
+COMMIT;
 
-**Program 5m**
+-- 3.c Create view
+CREATE OR REPLACE VIEW LIB_VIEW AS
+SELECT LIBRARY_NAME, LOCATION, NO_OF_BOOKS, HELPLINE_NO
+FROM LIBRARY;
 
-```python
-def characterReplacement(s, k):
-    freq = [0] * 26
-    maxLen = 0
-    maxFreq = 0
-    n = len(s)
-    r, l = 0, 0
-    while r < n:
-        freq[ord(s[r]) - ord('A')] += 1
-        maxFreq = max(maxFreq, freq[ord(s[r]) - ord('A')])
-        while (r - l + 1) - maxFreq > k:
-            freq[ord(s[l]) - ord('A')] -= 1
-            l += 1
-        maxLen = max(maxLen, r - l + 1)
-        r += 1
-    return maxLen
+-- Update KRC Library number of books (add 550)
+UPDATE LIB_VIEW
+SET NO_OF_BOOKS = NO_OF_BOOKS + 550
+WHERE LIBRARY_NAME = 'KRC Library';
+COMMIT;
 
-print(characterReplacement("AABABBA", 1))
+-- 3.iii Display libraries having more books than average across all libraries (nested subquery)
+SELECT LIBRARY_NAME, LOCATION, NO_OF_BOOKS
+FROM LIBRARY
+WHERE NO_OF_BOOKS > (SELECT AVG(NO_OF_BOOKS) FROM LIBRARY);
+
+-- 3.2 PL/SQL: decrease number of employees by 10% for libraries with > 25 employees
+SET SERVEROUTPUT ON;
+DECLARE
+  CURSOR emp_cur IS
+    SELECT LIBRARY_NAME, NO_OF_EMPLOYEES
+    FROM LIBRARY
+    WHERE NO_OF_EMPLOYEES > 25;
+BEGIN
+  FOR rec IN emp_cur LOOP
+    UPDATE LIBRARY
+    SET NO_OF_EMPLOYEES = NO_OF_EMPLOYEES - ROUND(NO_OF_EMPLOYEES * 0.10)
+    WHERE LIBRARY_NAME = rec.LIBRARY_NAME;
+    DBMS_OUTPUT.PUT_LINE('Employees updated for: ' || rec.LIBRARY_NAME);
+  END LOOP;
+  COMMIT;
+END;
+/
 ```
-
-**Expected output**
-`4`
-
-**Actual output 2m**
-`4`
 
 ---
 
-## 🧩 **U4 – Longest Substring Without Repeating Characters**
+# Set-4 — PURCHASE (questions 1 and 2)
 
-**Aim**
-Return the length of the longest substring with all unique characters.
+**Q1 (i, ii, iii):** create `PURCHASE` + 5 inserts; create `Purchase_View` (OrderID, Item_Name, Final_Cost, Warranty_Period) ordered by cost; show aggregate functions total items, average cost, highest & lowest final cost.
+**Q2:** trigger: prevent negative OrderID using `BEFORE INSERT OR UPDATE` with `RAISE_APPLICATION_ERROR`.
 
-**Description  3m**
-Maintain a sliding window using a set; expand right pointer and remove from set when duplicates encountered, updating maximum length.
+```sql
+-- ===== Set-4 =====
+-- 4.a Create PURCHASE table
+CREATE TABLE PURCHASE (
+  OrderID NUMBER PRIMARY KEY,
+  DateOfPurchase DATE,
+  Item_Name VARCHAR2(50),
+  Original_Cost NUMBER(10,2),
+  Discount NUMBER(10,2),
+  Final_Cost NUMBER(10,2),
+  Warranty_Period NUMBER, -- months
+  Item_Weight NUMBER(5,2)
+);
 
-**Example 2m**
-Input: `s = "abcabcbb"` → Output: `3`
+-- 4.b Insert 5 tuples
+INSERT INTO PURCHASE VALUES (101, TO_DATE('15-JAN-2025','DD-MON-YYYY'), 'Laptop',     55000, 5000, 50000, 24, 2.5);
+INSERT INTO PURCHASE VALUES (102, TO_DATE('08-FEB-2025','DD-MON-YYYY'), 'Smartphone', 30000, 2000, 28000, 12, 0.25);
+INSERT INTO PURCHASE VALUES (103, TO_DATE('14-FEB-2025','DD-MON-YYYY'), 'Smartwatch', 8000, 1000, 7000,  6, 0.10);
+INSERT INTO PURCHASE VALUES (104, TO_DATE('01-MAR-2025','DD-MON-YYYY'), 'Headphones', 2000, 200,  1800,  3, 0.15);
+INSERT INTO PURCHASE VALUES (105, TO_DATE('10-MAR-2025','DD-MON-YYYY'), 'Tablet',     22000, 3000, 19000, 18, 0.50);
+COMMIT;
 
-**Program 5m**
+-- 4.c Create view and order by Final_Cost
+CREATE OR REPLACE VIEW Purchase_View AS
+SELECT OrderID, Item_Name, Final_Cost, Warranty_Period
+FROM PURCHASE
+ORDER BY Final_Cost;
 
-```python
-def lengthOfLongestSubstring(s):
-    seen = set()
-    l = r = 0
-    maxLen = 0
-    while r < len(s):
-        while s[r] in seen:
-            seen.remove(s[l])
-            l += 1
-        seen.add(s[r])
-        maxLen = max(maxLen, r - l + 1)
-        r += 1
-    return maxLen
+-- See the view
+SELECT * FROM Purchase_View;
 
-print(lengthOfLongestSubstring("abcabcbb"))
+-- 4.d Aggregate functions: total items, average cost, highest and lowest final cost
+SELECT COUNT(*) AS Total_Items,
+       ROUND(AVG(Final_Cost),2) AS Average_Cost,
+       MAX(Final_Cost) AS Highest_Cost,
+       MIN(Final_Cost) AS Lowest_Cost
+FROM PURCHASE;
+
+-- 4.2 Trigger to prevent negative OrderID (BEFORE INSERT OR UPDATE)
+CREATE OR REPLACE TRIGGER Check_OrderID
+BEFORE INSERT OR UPDATE ON PURCHASE
+FOR EACH ROW
+BEGIN
+  IF :NEW.OrderID < 0 THEN
+    RAISE_APPLICATION_ERROR(-20001, 'OrderID cannot be negative!');
+  END IF;
+END;
+/
+
+-- Test the trigger (example)
+-- INSERT INTO PURCHASE VALUES (-201, TO_DATE('20-MAR-2025','DD-MON-YYYY'), 'Camera', 25000,3000,22000,12,0.8);
+-- The above should raise an error and be prevented.
 ```
-
-**Expected output**
-`3`
-
-**Actual output 2m**
-`3`
 
 ---
 
-## 🧩 **U4 – Minimum Window Substring**
+# Set-5 — CUSTOMER & ORDERS (questions 1 and 2)
 
-**Aim**
-Find the smallest substring in `s` that contains all characters of `t`.
+**Q1 (i, ii, iii):** create `CUSTOMER` and `ORDERS` (with FK), insert data; demonstrate joins: inner join for customers who placed orders, left join for customers with no orders, orders without corresponding customers; create `HIGH_VALUE_ORDERS` view for amount > 1000.
+**Q2:** apply a trigger on `ORDERS` that inserts deleted rows into `ORDERS_BACKUP`.
 
-**Description  3m**
-Use a frequency array for `t`, expand right to include characters, and shrink left while all required characters are included to find minimum window.
+```sql
+-- ===== Set-5 =====
+-- 5.a Create CUSTOMER and ORDERS tables
+CREATE TABLE CUSTOMER (
+  CID NUMBER PRIMARY KEY,
+  CNAME VARCHAR2(30),
+  CITY VARCHAR2(20),
+  CONTACT_NO VARCHAR2(15)
+);
 
-**Example 2m**
-Input: `s = "ADOBECODEBANC", t = "ABC"` → Output: `"BANC"`
+CREATE TABLE ORDERS (
+  OID NUMBER PRIMARY KEY,
+  CID NUMBER,
+  ORDER_DATE DATE,
+  ITEM VARCHAR2(30),
+  AMOUNT NUMBER(10),
+  CONSTRAINT fk_customer FOREIGN KEY (CID) REFERENCES CUSTOMER(CID)
+);
 
-**Program 5m**
+-- 5.b Insert CUSTOMER values
+INSERT INTO CUSTOMER VALUES (101,'Ravi','Hyderabad','9876543210');
+INSERT INTO CUSTOMER VALUES (102,'Sita','Mumbai',   '9998776655');
+INSERT INTO CUSTOMER VALUES (103,'Arjun','Chennai', '7896541230');
+INSERT INTO CUSTOMER VALUES (104,'Meera','Delhi',   '8899776655');
+COMMIT;
 
-```python
-def minWindow(s, t):
-    freq = [0] * 256
-    n = len(s)
-    m = len(t)
-    minLen = n + 1
-    for ch in t:
-        freq[ord(ch)] += 1
-    c = l = r = 0
-    sIdx = -1
-    while r < n:
-        if freq[ord(s[r])] > 0:
-            c += 1
-        freq[ord(s[r])] -= 1
-        while c == m:
-            if r - l + 1 < minLen:
-                minLen = r - l + 1
-                sIdx = l
-            freq[ord(s[l])] += 1
-            if freq[ord(s[l])] > 0:
-                c -= 1
-            l += 1
-        r += 1
-    return s[sIdx:sIdx+minLen] if sIdx != -1 else ""
+-- 5.c Insert ORDER values (note: OID values must be unique and CID must match existing or be NULL)
+INSERT INTO ORDERS VALUES (201,101, TO_DATE('10-10-2024','DD-MM-YYYY'), 'Laptop', 55000);
+INSERT INTO ORDERS VALUES (202,101, TO_DATE('15-10-2024','DD-MM-YYYY'), 'Bag',     900);
+INSERT INTO ORDERS VALUES (203,102, TO_DATE('09-09-2024','DD-MM-YYYY'), 'Phone', 25000);
+INSERT INTO ORDERS VALUES (204,NULL, TO_DATE('11-08-2024','DD-MM-YYYY'), 'Book',    500); -- order with no matching customer
+COMMIT;
 
-print(minWindow("ADOBECODEBANC", "ABC"))
+-- 5.ii Joins:
+-- Customers who placed orders (inner join)
+SELECT C.CID, C.CNAME, O.OID, O.ITEM, O.AMOUNT
+FROM CUSTOMER C
+INNER JOIN ORDERS O ON C.CID = O.CID;
+
+-- Customers who have not placed orders (left join + null check)
+SELECT C.CID, C.CNAME
+FROM CUSTOMER C
+LEFT JOIN ORDERS O ON C.CID = O.CID
+WHERE O.CID IS NULL;
+
+-- Orders without matching customers (orders with no corresponding customer)
+SELECT O.OID, O.ITEM, O.AMOUNT
+FROM ORDERS O
+LEFT JOIN CUSTOMER C ON O.CID = C.CID
+WHERE C.CID IS NULL;
+
+-- 5.iii Create a view of ORDERS where AMOUNT > 1000
+CREATE OR REPLACE VIEW HIGH_VALUE_ORDERS AS
+SELECT OID, ORDER_DATE, AMOUNT
+FROM ORDERS
+WHERE AMOUNT > 1000;
+
+-- To display
+SELECT * FROM HIGH_VALUE_ORDERS;
+
+-- 5.2 Trigger on ORDERS for DELETE: Save deleted rows into ORDERS_BACKUP
+CREATE TABLE ORDERS_BACKUP AS SELECT * FROM ORDERS WHERE 1=0;
+
+CREATE OR REPLACE TRIGGER ORDER_DELETE_BACKUP
+AFTER DELETE ON ORDERS
+FOR EACH ROW
+BEGIN
+  INSERT INTO ORDERS_BACKUP VALUES (
+    :OLD.OID,
+    :OLD.CID,
+    :OLD.ORDER_DATE,
+    :OLD.ITEM,
+    :OLD.AMOUNT
+  );
+END;
+/
+
+-- Test trigger (example)
+-- DELETE FROM ORDERS WHERE OID = 202;
+-- SELECT * FROM ORDERS_BACKUP;
 ```
-
-**Expected output**
-`BANC`
-
-**Actual output 2m**
-`BANC`
 
 ---
 
-## 🧩 **U4 – Birthday Paradox**
 
-**Aim**
-Compute probability that at least two people share a birthday in a group of `n`.
-
-**Description  3m**
-Compute the complement: probability that all birthdays are unique is product_{i=0..n-1} (365 - i)/365. Return `1 - product`.
-
-**Example 2m**
-Input: `n = 23` → Output: approximately `0.507297`
-
-**Program 5m**
-
-```python
-def birthdayProbability(n):
-    if n > 365:
-        return 1.0
-    prob = 1.0
-    for i in range(n):
-        prob *= (365.0 - i) / 365.0
-    return 1 - prob
-
-print("{:.6f}".format(birthdayProbability(23)))
-```
-
-**Expected output**
-Approximately: `0.507297`
-
-**Actual output 2m**
-`0.507297`
-
----
-
-## 🧩 **U5 – Find Minimum in Rotated Sorted Array**
-
-**Aim**
-Find the minimum element in a rotated sorted array (no duplicates).
-
-**Description  3m**
-Binary-search style: if subarray is already sorted, the leftmost is min; otherwise locate the unsorted half containing the minimum.
-
-**Example 2m**
-Input: `[3,4,5,1,2]` → Output: `1`
-
-**Program 5m**
-
-```python
-def findMin(nums):
-    low = 0
-    high = len(nums) - 1
-    ans = 6e3
-    while low <= high:
-        mid = (low + high) // 2
-        if nums[low] <= nums[high]:
-            return min(nums[low], ans)
-        if nums[low] <= nums[mid]:
-            ans = min(ans, nums[low])
-            low = mid + 1
-        elif nums[mid] <= nums[high]:
-            ans = min(ans, nums[mid])
-            high = mid - 1
-    return -1
-
-print(findMin([3,4,5,1,2]))
-```
-
-**Expected output**
-`1`
-
-**Actual output 2m**
-`1`
-
----
-
-## 🧩 **U5 – Binary Search**
-
-**Aim**
-Return index of `target` in sorted array `nums`, or `-1` if not present.
-
-**Description  3m**
-Standard iterative binary search updating `low`/`high` based on comparisons.
-
-**Example 2m**
-Input: `nums = [-1,0,3,5,9,12], target = 9` → Output: `4`
-
-**Program 5m**
-
-```python
-def search(nums, target):
-    low, high = 0, len(nums) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if nums[mid] == target:
-            return mid
-        if nums[mid] > target:
-            high = mid - 1
-        else:
-            low = mid + 1
-    return -1
-
-print(search([-1,0,3,5,9,12], 9))
-```
-
-**Expected output**
-`4`
-
-**Actual output 2m**
-`4`
 
 
 
