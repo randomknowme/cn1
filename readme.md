@@ -5,6 +5,10 @@ https://github.com/randomknowme/cn2
 https://github.com/randomknowme/cn3
 # ANSWER
 
+
+https://gist.github.com/KrishnaSrinivas-24/d1cf00ddaba0e17d587db8097bb3e84e#file-monkeybanana-py-L39
+
+
 A*
 ```py
 import heapq
@@ -81,6 +85,8 @@ start = tuple(start)
 
 a_star(start)
 ```
+
+https://gist.github.com/KrishnaSrinivas-24/d1cf00ddaba0e17d587db8097bb3e84e#file-monkeybanana-py-L39
 
 # END
 https://github.com/randomknowme/cn1
