@@ -9,6 +9,185 @@ https://github.com/randomknowme/cn3
 https://gist.github.com/KrishnaSrinivas-24/d1cf00ddaba0e17d587db8097bb3e84e#file-monkeybanana-py-L39
 
 
+---
+
+# 🔵 1️⃣ 8PuzzleProblem.py
+
+### ✅ Sample Input 1 (Simple – 1 Move Away)
+
+```
+Enter Initial State:
+1 2 3
+4 5 6
+7 0 8
+
+Enter Goal State:
+1 2 3
+4 5 6
+7 8 0
+```
+
+---
+
+### ✅ Sample Input 2 (Moderate Case)
+
+```
+Enter Initial State:
+1 2 3
+4 0 6
+7 5 8
+
+Enter Goal State:
+1 2 3
+4 5 6
+7 8 0
+```
+
+---
+
+# 🔵 2️⃣ BFS.py (Unweighted Graph)
+
+### ✅ Sample Input
+
+```
+Number of nodes: 4
+
+Node: A
+Neighbors count: 2
+Neighbor: B
+Neighbor: C
+
+Node: B
+Neighbors count: 1
+Neighbor: D
+
+Node: C
+Neighbors count: 0
+
+Node: D
+Neighbors count: 0
+
+Start node: A
+Goal node: D
+```
+
+Expected shortest path:
+
+```
+A → B → D
+```
+
+---
+
+# 🔵 3️⃣ MonkeyBanana.py
+
+### ✅ Sample Input 1
+
+```
+Monkey position: entrance
+Box position: table
+Banana position: window
+```
+
+---
+
+### ✅ Sample Input 2 (Easy Case)
+
+```
+Monkey position: table
+Box position: table
+Banana position: table
+```
+
+Solution:
+
+```
+Climb box
+Grab banana
+```
+
+---
+
+# 🔵 4️⃣ UCS.py (Weighted Graph)
+
+### ✅ Sample Input
+
+```
+Number of nodes: 4
+
+Node: A
+Neighbors count: 2
+Neighbor: B
+Cost: 1
+Neighbor: C
+Cost: 4
+
+Node: B
+Neighbors count: 1
+Neighbor: D
+Cost: 2
+
+Node: C
+Neighbors count: 1
+Neighbor: D
+Cost: 1
+
+Node: D
+Neighbors count: 0
+
+Start node: A
+Goal node: D
+```
+
+Expected optimal path:
+
+```
+A → B → D
+Cost = 3
+```
+
+(Not A → C → D because that costs 5)
+
+---
+
+# 🔵 5️⃣ VacuumCleaner.py
+
+### ✅ Sample Input
+
+```
+Enter location (A/B): A
+Enter Room A status (dirty/clean/exit): dirty
+Enter Room A status (dirty/clean/exit): clean
+Enter Room B status (dirty/clean/exit): dirty
+Enter Room B status (dirty/clean/exit): clean
+Enter Room A status (dirty/clean/exit): exit
+```
+
+---
+
+# 🔵 6️⃣ WaterJug.py
+
+### ✅ Classic Test Case
+
+```
+Enter Jug A Capacity: 3
+Enter Jug B Capacity: 5
+Enter Target in Jug A: 2
+```
+
+This is the famous 3L & 5L problem → get 2L.
+
+---
+
+### ✅ Another Test Case
+
+```
+Enter Jug A Capacity: 4
+Enter Jug B Capacity: 7
+Enter Target in Jug A: 5
+```
+
+
 A*
 ```py
 import heapq
