@@ -5,267 +5,130 @@ https://github.com/randomknowme/cn2
 https://github.com/randomknowme/cn3
 # ANSWER
 
+https://colab.research.google.com/drive/1Dq5Ko45BXX3-5Ok7PChpCbrOMOffd1o6?usp=sharing
 
-https://gist.github.com/KrishnaSrinivas-24/d1cf00ddaba0e17d587db8097bb3e84e#file-monkeybanana-py-L39
-
-
----
-
-# 🔵 1️⃣ 8PuzzleProblem.py
-
-### ✅ Sample Input 1 (Simple – 1 Move Away)
-
-```
-Enter Initial State:
-1 2 3
-4 5 6
-7 0 8
-
-Enter Goal State:
-1 2 3
-4 5 6
-7 8 0
-```
+Below is the complete lab record format for all 6 programs as requested.
 
 ---
 
-### ✅ Sample Input 2 (Moderate Case)
+# **1) Implement perceptron neural network (gate operations, classification etc) and compute the accuracy.**
 
-```
-Enter Initial State:
-1 2 3
-4 0 6
-7 5 8
+### **AIM**
 
-Enter Goal State:
-1 2 3
-4 5 6
-7 8 0
-```
+To implement a Perceptron Neural Network for binary classification and compute its accuracy.
 
----
+### **Description**
 
-# 🔵 2️⃣ BFS.py (Unweighted Graph)
+The Perceptron is a single-layer neural network used for binary classification. It computes a weighted sum of inputs and passes it through a step activation function to produce output.
+In this implementation, the Iris dataset is converted into a binary classification problem. The data is standardized, trained using a perceptron model, and accuracy is computed to evaluate performance.
 
-### ✅ Sample Input
+### **Output**
 
-```
-Number of nodes: 4
-
-Node: A
-Neighbors count: 2
-Neighbor: B
-Neighbor: C
-
-Node: B
-Neighbors count: 1
-Neighbor: D
-
-Node: C
-Neighbors count: 0
-
-Node: D
-Neighbors count: 0
-
-Start node: A
-Goal node: D
-```
-
-Expected shortest path:
-
-```
-A → B → D
-```
+Accuracy ≈ 95% – 100%
+(Accuracy may slightly vary depending on train-test split)
 
 ---
 
-# 🔵 3️⃣ MonkeyBanana.py
+# **2) Implement various activation functions step, sign, linear, sigmoid, tanh and ReLU using any basic neural network.**
 
-### ✅ Sample Input 1
+### **AIM**
 
-```
-Monkey position: entrance
-Box position: table
-Banana position: window
-```
+To implement and visualize different activation functions used in neural networks.
 
----
+### **Description**
 
-### ✅ Sample Input 2 (Easy Case)
+Activation functions introduce non-linearity into neural networks. In this implementation, linear combinations of inputs are computed and passed through different activation functions such as Step, Sign, Linear, Sigmoid, Tanh, and ReLU.
+The Diabetes dataset is used for generating input values, and activation outputs are visualized graphically.
 
-```
-Monkey position: table
-Box position: table
-Banana position: table
-```
+### **Output**
 
-Solution:
+Sigmoid Sample Output: Random values between 0 and 1
+Graphs plotted for:
 
-```
-Climb box
-Grab banana
-```
+* Step Function
+* Sigmoid Function
+* Tanh Function
+* ReLU Function
 
 ---
 
-# 🔵 4️⃣ UCS.py (Weighted Graph)
+# **3) Implement multi-layer feed forward neural network. Justify the number of neurons in the hidden layer, number of hidden layers to have maximum accuracy.**
 
-### ✅ Sample Input
+### **AIM**
 
-```
-Number of nodes: 4
+To implement a Multi-Layer Feed Forward Neural Network and determine the optimal hidden layer architecture for maximum accuracy.
 
-Node: A
-Neighbors count: 2
-Neighbor: B
-Cost: 1
-Neighbor: C
-Cost: 4
+### **Description**
 
-Node: B
-Neighbors count: 1
-Neighbor: D
-Cost: 2
+A Multi-Layer Perceptron (MLP) consists of input, hidden, and output layers. Different hidden layer configurations are tested to compare performance.
+The California Housing dataset is used for regression, and model performance is evaluated using R² score. The architecture with the highest score is selected as the best model.
 
-Node: C
-Neighbors count: 1
-Neighbor: D
-Cost: 1
+### **Output**
 
-Node: D
-Neighbors count: 0
-
-Start node: A
-Goal node: D
-```
-
-Expected optimal path:
-
-```
-A → B → D
-Cost = 3
-```
-
-(Not A → C → D because that costs 5)
+Different R² Scores for various architectures.
+Best Architecture Example: (100, 50)
+Highest R² Score ≈ 0.78 – 0.82
 
 ---
 
-# 🔵 5️⃣ VacuumCleaner.py
+# **4) Implement binary class classification using a suitable neural network.**
 
-### ✅ Sample Input
+### **AIM**
 
-```
-Enter location (A/B): A
-Enter Room A status (dirty/clean/exit): dirty
-Enter Room A status (dirty/clean/exit): clean
-Enter Room B status (dirty/clean/exit): dirty
-Enter Room B status (dirty/clean/exit): clean
-Enter Room A status (dirty/clean/exit): exit
-```
+To implement binary classification using a neural network and compute its accuracy.
 
----
+### **Description**
 
-# 🔵 6️⃣ WaterJug.py
+Binary classification predicts one of two possible classes. A neural network is built using one hidden layer with ReLU activation and an output layer with Sigmoid activation.
+The Breast Cancer Wisconsin dataset is used for classification. The model is trained using binary crossentropy loss and evaluated using accuracy and confusion matrix.
 
-### ✅ Classic Test Case
+### **Output**
 
-```
-Enter Jug A Capacity: 3
-Enter Jug B Capacity: 5
-Enter Target in Jug A: 2
-```
-
-This is the famous 3L & 5L problem → get 2L.
+Accuracy ≈ 95% – 99%
+Confusion Matrix displayed showing correct and incorrect classifications.
 
 ---
 
-### ✅ Another Test Case
+# **5) Implement multi class classification using a suitable neural network.**
 
-```
-Enter Jug A Capacity: 4
-Enter Jug B Capacity: 7
-Enter Target in Jug A: 5
-```
+### **AIM**
+
+To implement multi-class classification using a neural network and compute its accuracy.
+
+### **Description**
+
+Multi-class classification predicts one of more than two classes. A neural network with a hidden layer using ReLU activation and an output layer using Softmax activation is implemented.
+The Iris dataset is used with three output classes. The model is trained using sparse categorical crossentropy loss and evaluated using accuracy and confusion matrix.
+
+### **Output**
+
+Accuracy ≈ 95% – 100%
+Confusion Matrix showing classification performance across three classes.
+
+---
+
+# **6) Implement backpropagation neural network, trace the error and compute the accuracy.**
+
+### **AIM**
+
+To implement a Backpropagation Neural Network, trace the error during training, and compute the accuracy.
+
+### **Description**
+
+Backpropagation is a supervised learning algorithm used to train multi-layer neural networks. It updates weights by propagating the error backward through the network.
+The Iris dataset is used for classification. The loss curve is plotted to visualize error reduction over epochs, and accuracy is computed to evaluate performance.
+
+### **Output**
+
+Accuracy ≈ 95% – 100%
+Loss vs Epoch graph showing decreasing error during training.
+
+---
+
+If you want, I can now format this exactly in **record-writing style (ready to print)**.
 
 
-A*
-```py
-import heapq
-
-# Goal State
-goal = ((1,2,3),
-        (4,5,6),
-        (7,8,0))
-
-# Heuristic: Manhattan Distance
-def h(s):
-    d = 0
-    for i in range(3):
-        for j in range(3):
-            v = s[i][j]
-            if v != 0:
-                for x in range(3):
-                    for y in range(3):
-                        if goal[x][y] == v:
-                            d += abs(i-x) + abs(j-y)
-    return d
-
-# Get possible moves
-def get_neighbors(state):
-    neighbors = []
-    for i in range(3):
-        for j in range(3):
-            if state[i][j] == 0:
-                x, y = i, j
-
-    directions = [(1,0), (-1,0), (0,1), (0,-1)]
-
-    for dx, dy in directions:
-        nx, ny = x + dx, y + dy
-        if 0 <= nx < 3 and 0 <= ny < 3:
-            new_state = [list(row) for row in state]
-            new_state[x][y], new_state[nx][ny] = new_state[nx][ny], new_state[x][y]
-            neighbors.append(tuple(tuple(row) for row in new_state))
-
-    return neighbors
-
-def a_star(start):
-    pq = []
-    heapq.heappush(pq, (h(start), 0, start))
-    visited = set()
-
-    while pq:
-        f, g, state = heapq.heappop(pq)
-
-        if state == goal:
-            print("Goal Reached!")
-            return
-
-        if state in visited:
-            continue
-
-        visited.add(state)
-
-        for neighbor in get_neighbors(state):
-            if neighbor not in visited:
-                heapq.heappush(pq, (g + 1 + h(neighbor), g + 1, neighbor))
-
-    print("No solution found.")
-
-# ===== Dynamic Input =====
-print("Enter the 8-puzzle start state (use 0 for blank):")
-
-start = []
-for i in range(3):
-    row = list(map(int, input(f"Enter row {i+1} (3 numbers separated by space): ").split()))
-    start.append(tuple(row))
-
-start = tuple(start)
-
-a_star(start)
-```
-
-https://gist.github.com/KrishnaSrinivas-24/d1cf00ddaba0e17d587db8097bb3e84e#file-monkeybanana-py-L39
+https://colab.research.google.com/drive/1Dq5Ko45BXX3-5Ok7PChpCbrOMOffd1o6?usp=sharing
 
 # END
 https://github.com/randomknowme/cn1
