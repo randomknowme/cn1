@@ -7,6 +7,8 @@ https://github.com/randomknowme/cn3
 
 https://colab.research.google.com/drive/1Dq5Ko45BXX3-5Ok7PChpCbrOMOffd1o6?usp=sharing
 
+https://chatgpt.com/share/69a5375d-1a08-8009-9654-26207e4e95d8
+
 Below is the complete lab record format for all 6 programs as requested.
 
 ---
@@ -129,6 +131,8 @@ If you want, I can now format this exactly in **record-writing style (ready to p
 
 
 https://colab.research.google.com/drive/1Dq5Ko45BXX3-5Ok7PChpCbrOMOffd1o6?usp=sharing
+
+https://chatgpt.com/share/69a5375d-1a08-8009-9654-26207e4e95d8
 
 # END
 https://github.com/randomknowme/cn1
