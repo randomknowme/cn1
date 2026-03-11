@@ -5,7 +5,7 @@ https://github.com/randomknowme/cn2
 https://github.com/randomknowme/cn3
 # ANSWER
 
-https://colab.research.google.com/drive/1Dq5Ko45BXX3-5Ok7PChpCbrOMOffd1o6?usp=sharing
+[https://colab.research.google.com/drive/1Dq5Ko45BXX3-5Ok7PChpCbrOMOffd1o6?usp=sharing
 
 https://chatgpt.com/share/69a5375d-1a08-8009-9654-26207e4e95d8
 
@@ -123,7 +123,7 @@ The Iris dataset is used for classification. The loss curve is plotted to visual
 ### **Output**
 
 Accuracy ≈ 95% – 100%
-Loss vs Epoch graph showing decreasing error during training.
+Loss vs Epoch graph showing decreasing error during training.](https://gist.github.com/randomknowme/bf2396606aaff3b9b0f6d4501bbe06db#file-all-in-one-small-version-py)
 
 ---
 
