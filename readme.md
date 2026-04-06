@@ -5,6 +5,7 @@ https://github.com/randomknowme/cn2
 https://github.com/randomknowme/cn3
 # ANSWER
 
+https://colab.research.google.com/drive/1X2dGROXlIoXCn41NOHh-NPqjwi1NdqQg?usp=sharing
 
 # Boltzmann.py
 ```python
@@ -108,6 +109,8 @@ plt.ylim([0,8])
 plt.grid()
 plt.show()
 ```
+
+https://colab.research.google.com/drive/1X2dGROXlIoXCn41NOHh-NPqjwi1NdqQg?usp=sharing
 
 # END
 https://github.com/randomknowme/cn1
