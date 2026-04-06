@@ -73,7 +73,7 @@ p1 = bin(X[y==3][0])
 p2 = bin(X[y==8][0])
 W = np.outer(p1,p1) + np.outer(p2,p2)
 np.fill_diagonal(W,0)
-W /= len(p1)
+W = W / len(p1)
 n = noise(p1, 0.35)
 for _ in range(15):
     for i in range(len(n)):
@@ -85,7 +85,7 @@ show(n,"Restored")
 
 # SOM.py
 ```python
-pip install minisom
+!pip install minisom
 #-----------------
 import numpy as np
 import matplotlib.pyplot as plt
