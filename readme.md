@@ -6,6 +6,7 @@ https://github.com/randomknowme/cn3
 # ANSWER
 
 https://tinyurl.com/DL-ITALY
+
 https://colab.research.google.com/drive/1Cfq6ju2CDB0c3CYbGeFn18fCS4DWOJ05?usp=sharing
 
 # Text Classification using Simple RNN
@@ -330,6 +331,7 @@ plt.show()
 ```
 
 https://colab.research.google.com/drive/1Cfq6ju2CDB0c3CYbGeFn18fCS4DWOJ05?usp=sharing
+
 https://tinyurl.com/DL-ITALY
 
 
