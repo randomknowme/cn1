@@ -64,7 +64,64 @@ words = ["python", "ai", "hangman", "code"]
 word = random.choice(words)
 guessed = ["_"] * len(word)
 attempts = 6
-stages = []
+stages = [
+    """
+     -----
+     |   |
+         |
+         |
+         |
+         |
+    """,
+    """
+     -----
+     |   |
+     O   |
+         |
+         |
+         |
+    """,
+    """
+     -----
+     |   |
+     O   |
+     |   |
+         |
+         |
+    """,
+    """
+     -----
+     |   |
+     O   |
+    /|   |
+         |
+         |
+    """,
+    """
+     -----
+     |   |
+     O   |
+    /|\\  |
+         |
+         |
+    """,
+    """
+     -----
+     |   |
+     O   |
+    /|\\  |
+    /    |
+         |
+    """,
+    """
+     -----
+     |   |
+     O   |
+    /|\\  |
+    / \\  |
+         |
+    """
+]
 while attempts > 0 and "_" in guessed:
     print(stages[6 - attempts])
     print("Word:", " ".join(guessed))
