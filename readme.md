@@ -12,38 +12,25 @@ https://colab.research.google.com/drive/10Arx2Iqr5_7MC2tFUeUACDDaSiG89P0h?usp=sh
 # Minimax and Alpha-Beta Pruning
 ```python
 tree = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F', 'G'],
-    'D': [3, 5],
-    'E': [2, 9],
-    'F': [0, 7],
-    'G': [1, 8]
+    'A': ['B', 'C'], 'B': ['D', 'E'], 'C': ['F', 'G'],
+    'D': [3, 5], 'E': [2, 9], 'F': [0, 7], 'G': [1, 8]
 }
-
 visited_minimax = 0
 visited_ab = 0
-
 def minimax(node, is_max):
     global visited_minimax
     visited_minimax += 1
-
-    # Leaf node
     if isinstance(node, int):
         return node
-
     if is_max:
         return max(minimax(child, False) for child in tree[node])
     else:
         return min(minimax(child, True) for child in tree[node])
-
 def alpha_beta(node, alpha, beta, is_max):
     global visited_ab
     visited_ab += 1
-
     if isinstance(node, int):
         return node
-
     if is_max:
         value = float('-inf')
         for child in tree[node]:
@@ -62,7 +49,6 @@ def alpha_beta(node, alpha, beta, is_max):
                 print("Pruned at:", child)
                 break
         return value
-
 print("Minimax Value:", minimax('A', True))
 print("Nodes Visited (Minimax):", visited_minimax)
 
@@ -74,86 +60,22 @@ print("Nodes Visited (Alpha-Beta):", visited_ab)
 # Hangman
 ```python
 import random
-
 words = ["python", "ai", "hangman", "code"]
 word = random.choice(words)
 guessed = ["_"] * len(word)
 attempts = 6
-
-stages = [
-    """
-     -----
-     |   |
-         |
-         |
-         |
-         |
-    """,
-    """
-     -----
-     |   |
-     O   |
-         |
-         |
-         |
-    """,
-    """
-     -----
-     |   |
-     O   |
-     |   |
-         |
-         |
-    """,
-    """
-     -----
-     |   |
-     O   |
-    /|   |
-         |
-         |
-    """,
-    """
-     -----
-     |   |
-     O   |
-    /|\\  |
-         |
-         |
-    """,
-    """
-     -----
-     |   |
-     O   |
-    /|\\  |
-    /    |
-         |
-    """,
-    """
-     -----
-     |   |
-     O   |
-    /|\\  |
-    / \\  |
-         |
-    """
-]
-
+stages = []
 while attempts > 0 and "_" in guessed:
     print(stages[6 - attempts])
     print("Word:", " ".join(guessed))
-
     guess = input("\nEnter letter: ")
-
     if guess in word:
         for i in range(len(word)):
             if word[i] == guess:
                 guessed[i] = guess
-
     else:
         attempts -= 1
         print("Wrong guess!")
-
 if "_" not in guessed:
     print("You win! Word:", word)
 else:
@@ -169,26 +91,18 @@ else:
 from sympy import symbols
 from sympy.logic.boolalg import And, Or, Not, Implies, Equivalent
 from sympy.logic.inference import satisfiable
-
 p, q, r = symbols('p q r')
-
 expr1 = And(p, q)
 expr2 = Or(p, Not(q))
 expr3 = Implies(p, q)
 expr4 = Equivalent(p, q)
-
-
 values = {p: True, q: False}
-
 print("AND:", expr1.subs(values))
 print("OR:", expr2.subs(values))
 print("IMPLIES:", expr3.subs(values))
 print("EQUIVALENT:", expr4.subs(values))
-
 print("Satisfiable:", satisfiable(expr1))
-
 from sympy.logic.boolalg import to_cnf, to_dnf
-
 print("CNF:", to_cnf(expr3))
 print("DNF:", to_dnf(expr3))
 ```
