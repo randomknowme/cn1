@@ -1,12 +1,10 @@
-https://github.com/randomknowme/cn1
+# SET-2 Answers
 
-https://github.com/randomknowme/cn2
+---
 
-https://github.com/randomknowme/cn3
-# ANSWER
+## **1. JavaScript Program (JSON → HTML Table)**
 
-1.
-
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +26,6 @@ https://github.com/randomknowme/cn3
 </table>
 
 <script>
-    // JSON array
     const products = [
         { id: 1, name: "Laptop", price: 50000 },
         { id: 2, name: "Mobile", price: 20000 },
@@ -49,19 +46,25 @@ https://github.com/randomknowme/cn3
 
 </body>
 </html>
+```
 
+---
 
+## **2. Servlet Login using doPost()**
 
-2.
+### HTML Form
 
+```html
 <form action="LoginServlet" method="post">
     Username: <input type="text" name="username"><br>
     Password: <input type="password" name="password"><br>
     <input type="submit" value="Login">
 </form>
+```
 
+### Servlet Code
 
-
+```java
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -84,13 +87,13 @@ public class LoginServlet extends HttpServlet {
         }
     }
 }
+```
 
+---
 
+## **3. JSP + JDBC (Employee Table)**
 
-
-
-3.
-
+```jsp
 <%@ page import="java.sql.*" %>
 <html>
 <body>
@@ -131,14 +134,13 @@ public class LoginServlet extends HttpServlet {
 </table>
 </body>
 </html>
+```
 
+---
 
+## **4. AngularJS Registration Form with Validation**
 
-
-
-
-4.
-
+```html
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
@@ -181,12 +183,14 @@ public class LoginServlet extends HttpServlet {
 
 </body>
 </html>
+```
 
+---
 
+## 🔗 References
 
-# END
-https://github.com/randomknowme/cn1
+* https://github.com/randomknowme/cn1
+* https://github.com/randomknowme/cn2
+* https://github.com/randomknowme/cn3
 
-https://github.com/randomknowme/cn2
-
-https://github.com/randomknowme/cn3
+---
